@@ -3,8 +3,10 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import NoteCards from './NoteCards';
+import NoteModal from './NoteModal';
 
 const Home = () => {
+  const [showModal, setShowModal] = useState(false);
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
@@ -21,11 +23,16 @@ const Home = () => {
     <>
       <h1>Noted</h1>
       <div>
-        <FontAwesomeIcon icon={faPlus} className="plusIcon" />
+        <FontAwesomeIcon
+          icon={faPlus}
+          className="plusIcon"
+          onClick={() => setShowModal(true)}
+        />
       </div>
       <div className="container">
         <NoteCards notes={notes} />
       </div>
+      {showModal && <NoteModal onClose={() => setShowModal(false)} />}
     </>
   );
 };

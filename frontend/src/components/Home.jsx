@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import NoteCards from './NoteCards';
 
 const Home = () => {
@@ -15,7 +17,17 @@ const Home = () => {
         console.log(error);
       });
   }, []);
-  return <NoteCards notes={notes} />;
+  return (
+    <>
+      <h1>Noted</h1>
+      <div>
+        <FontAwesomeIcon icon={faPlus} className="plusIcon" />
+      </div>
+      <div className="container">
+        <NoteCards notes={notes} />
+      </div>
+    </>
+  );
 };
 
 export default Home;

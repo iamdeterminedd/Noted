@@ -2,7 +2,7 @@ import React from 'react';
 
 const NoteCards = ({ notes }) => {
   return (
-    <div>
+    <div className="notecards-container">
       {notes.map((item) => (
         <div className="card" key={item._id}>
           <div className="card-content">

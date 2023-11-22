@@ -56,12 +56,19 @@ h1 {
     background-color: #f8f8f8;
 }
 
+.card .divXmark{
+    text-align: right;
+}
+.card .xmark-icon{
+    color: #ce2519;
+    cursor: pointer;
+}
+
 .card .card-content {
     padding: 20px;
 }
 
 .card .card-content .note-title {
-    margin: 10px 0;
     color: #333;
 }
 
@@ -163,5 +170,10 @@ margin-bottom: 10px;
     width: 40%;
     padding: 15px;
     background-color: #28c95e;
+}
+
+.card .xmark-icon{
+    color: #ce2519;
+    font-size: 18px;
 }
 }

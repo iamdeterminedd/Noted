@@ -1,11 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import noteRoute from './routes/noteRoute.js';
+import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 
 const port = process.env.PORT || 5000;
 const app = express();
+
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 app.use(express.json());
 
@@ -13,7 +16,7 @@ app.get('/', (req, res) => {
   res.send('Noted App');
 });
 
-app.use('/note', noteRoute);
+app.use('/notes', noteRoute);
 
 mongoose
   .connect(process.env.MONGO_URI)

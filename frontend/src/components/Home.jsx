@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import NoteCards from './NoteCards';
 import NoteModal from './NoteModal';
-import { fetchData } from '../services/api-client.js';
 import useFetch from '../hooks/useFetch';
 
 const Home = () => {
@@ -13,8 +12,6 @@ const Home = () => {
     'http://localhost:5000/notes',
     update
   );
-
-  console.log(notes);
 
   return (
     <>

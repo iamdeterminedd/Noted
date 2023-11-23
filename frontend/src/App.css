@@ -60,6 +60,7 @@ h1 {
     text-align: right;
 }
 .card .xmark-icon{
+    margin: 5px;
     color: #ce2519;
     cursor: pointer;
 }

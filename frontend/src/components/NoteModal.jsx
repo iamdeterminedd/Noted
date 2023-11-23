@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useSnackbar } from 'notistack';
 
-const NoteModal = ({ onClose }) => {
+const NoteModal = ({ onClose, onUpdate }) => {
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const { enqueueSnackbar } = useSnackbar();
@@ -17,6 +17,7 @@ const NoteModal = ({ onClose }) => {
       .post('http://localhost:5000/notes', data)
       .then(() => {
         enqueueSnackbar('Note Added', { variant: 'success' });
+        onUpdate();
         onClose();
       })
       .catch((error) => {

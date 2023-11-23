@@ -1,24 +1,21 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import NoteCards from './NoteCards';
 import NoteModal from './NoteModal';
+import { fetchData } from '../services/api-client.js';
+import useFetch from '../hooks/useFetch';
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
-  const [notes, setNotes] = useState([]);
+  const [update, setUpdate] = useState(false);
+  const { data: notes, error } = useFetch(
+    'http://localhost:5000/notes',
+    update
+  );
 
-  useEffect(() => {
-    axios
-      .get('http://localhost:5000/notes')
-      .then((res) => {
-        setNotes(res.data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  console.log(notes);
+
   return (
     <>
       <h1>Noted</h1>
@@ -30,9 +27,14 @@ const Home = () => {
         />
       </div>
       <div className="container">
-        <NoteCards notes={notes} />
+        <NoteCards notes={notes} onUpdate={() => setUpdate((prev) => !prev)} />
       </div>
-      {showModal && <NoteModal onClose={() => setShowModal(false)} />}
+      {showModal && (
+        <NoteModal
+          onClose={() => setShowModal(false)}
+          onUpdate={() => setUpdate((prev) => !prev)}
+        />
+      )}
     </>
   );
 };

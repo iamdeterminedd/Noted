@@ -17,13 +17,24 @@ const NoteModalDetails = ({ onClose, onUpdate, id }) => {
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, []);
 
-  const handleAddNote = () => {
+  const handleEditNote = () => {
     const data = {
       title,
       text,
     };
+
+    axios
+      .put(`http://localhost:5000/notes/${id}`, data)
+      .then(() => {
+        enqueueSnackbar('Note edited', { variant: 'success' });
+        // onUpdate();
+      })
+      .catch((error) => {
+        enqueueSnackbar('Error', { variant: 'error' });
+        console.log(error);
+      });
   };
   return (
     <div className="modal-bgscreen" onClick={onClose}>
@@ -33,7 +44,6 @@ const NoteModalDetails = ({ onClose, onUpdate, id }) => {
             className="modal-input"
             type="text"
             value={title}
-            placeholder="Title"
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
@@ -49,8 +59,8 @@ const NoteModalDetails = ({ onClose, onUpdate, id }) => {
         </div>
 
         <div className="divAddButton">
-          <button className="btn-addNote" onClick={handleAddNote}>
-            Add Note
+          <button className="btn-addNote" onClick={handleEditNote}>
+            Save
           </button>
         </div>
       </div>

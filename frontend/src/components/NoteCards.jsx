@@ -23,24 +23,6 @@ const NoteCards = ({ notes, onUpdate }) => {
       });
   };
 
-  const handleEditNote = (id) => {
-    const data = {
-      title,
-      text,
-    };
-
-    axios
-      .put(`http://localhost:5000/notes/${id}`, data)
-      .then(() => {
-        enqueueSnackbar('Note edited', { variant: 'success' });
-        onUpdate();
-      })
-      .catch((error) => {
-        enqueueSnackbar('Error', { variant: 'error' });
-        console.log(error);
-      });
-  };
-
   const handleNoteClicked = (id) => {
     setSelectedNoteId(id);
     setShowModal(true);
@@ -73,7 +55,7 @@ const NoteCards = ({ notes, onUpdate }) => {
       {showModal && (
         <NoteModalDetails
           onClose={() => setShowModal(false)}
-          onUpdate={() => setUpdate((prev) => !prev)}
+          // onUpdate={() => setUpdate((prev) => !prev)}
           id={selectedNoteId}
         />
       )}

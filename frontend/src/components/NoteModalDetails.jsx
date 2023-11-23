@@ -29,7 +29,8 @@ const NoteModalDetails = ({ onClose, onUpdate, id }) => {
       .put(`http://localhost:5000/notes/${id}`, data)
       .then(() => {
         enqueueSnackbar('Note edited', { variant: 'success' });
-        // onUpdate();
+        onUpdate();
+        onClose();
       })
       .catch((error) => {
         enqueueSnackbar('Error', { variant: 'error' });

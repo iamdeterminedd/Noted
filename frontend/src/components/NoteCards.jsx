@@ -55,7 +55,7 @@ const NoteCards = ({ notes, onUpdate }) => {
       {showModal && (
         <NoteModalDetails
           onClose={() => setShowModal(false)}
-          // onUpdate={() => setUpdate((prev) => !prev)}
+          onUpdate={onUpdate}
           id={selectedNoteId}
         />
       )}

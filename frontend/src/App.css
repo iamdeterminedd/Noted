@@ -6,13 +6,25 @@
     padding: 0;
 }
 
+:root {
+    --body_background: #f4f4f4;
+    --body_cardbackground:#f4f4f4;
+    --body_color: #333;
+}
+
+[data-theme="dark"] {
+    --body_background: #222a32;
+    --body_cardbackground:#222a32;
+    --body_color:#f4f4f4;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
-  color: #333;
-  background-color: #f4f4f4;
+  color:var(--body_color);
+  background-color:var(--body_background);
   overflow-x: hidden;
 }
 
@@ -22,6 +34,15 @@ h1 {
     margin-bottom: 10px;
     position: relative;
   }
+
+
+.divTheme{
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
 
 .plusIcon{
     border: none;
@@ -38,26 +59,27 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--body_background);
 }
 
 .notecards-container {
     display: grid;
     grid-template-columns: 1fr;
+    background-color: var(--body_background);
 }
 
 /* Note Card */
 .card {
-    /* width: 300px; */
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
-    background-color: #f8f8f8;
 }
 
 .card .divXmark{
     text-align: right;
+    background-color: var(--body_cardbackground);
 }
 .card .xmark-icon{
     margin: 5px;
@@ -66,16 +88,21 @@ h1 {
 }
 
 .card .card-content {
+    height: 100%;
     padding: 20px;
+    background-color: var(--body_cardbackground);
+    color: var(--body_color);
 }
 
 .card .card-content .note-title {
-    color: #333;
+    color: var(--body_color);
+    background-color: var(--body_cardbackground);
 }
 
 .card .card-content .note-content {
     margin: 10px 0;
-    color: #333;
+    color: var(--body_color);
+    background-color: var(--body_cardbackground);
 }
 
 /* Modal */
@@ -98,7 +125,7 @@ h1 {
     flex-direction: column;
     position: relative;
     width: 100%;
-    background-color: #fff;
+    background-color: var(--body_cardbackground);
     border-radius: 0.75rem;
     padding: 16px;
     text-align: center;
@@ -106,10 +133,12 @@ h1 {
 
 .divAddTitle{
 margin-bottom: 10px;
+background-color: var(--body_cardbackground);
 }
 
 .divAddTextContent{
 margin-bottom: 10px;
+background-color: var(--body_cardbackground);
 }
 
 .modal-input {
@@ -121,6 +150,8 @@ margin-bottom: 10px;
     align-self: stretch;
     border-radius: 8px;
     border: 1.333px solid #b6b5b5;
+    background-color: var(--body_cardbackground);
+    color: var(--body_color);
 }
 
 .btn-addNote{
@@ -130,6 +161,10 @@ margin-bottom: 10px;
 }
 
 @media(min-width: 700px){
+
+.divTheme{
+    right: 20px;
+}
 .notecards-container {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -140,7 +175,6 @@ margin-bottom: 10px;
     flex-direction: column;
     position: relative;
     width: 500px;
-    background-color: #fff;
     border-radius: 0.75rem;
     padding: 20px;
     text-align: center;
@@ -152,8 +186,7 @@ margin-bottom: 10px;
 
 @media(min-width: 1000px){
 .notecards-container {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .modal-container {
@@ -161,7 +194,6 @@ margin-bottom: 10px;
     flex-direction: column;
     position: relative;
     width: 500px;
-    background-color: #fff;
     border-radius: 0.75rem;
     padding: 16px;
     text-align: center;
@@ -173,8 +205,23 @@ margin-bottom: 10px;
     background-color: #28c95e;
 }
 
+.card {
+    width: 200px;
+}
+
 .card .xmark-icon{
     color: #ce2519;
     font-size: 18px;
 }
+}
+
+@media(min-width: 1400px){
+    .notecards-container {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .card {
+        width: 250px;
+    }
+    
 }

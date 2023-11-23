@@ -1,17 +1,22 @@
-import { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
+import useFetch from '../hooks/useFetch';
 import NoteCards from './NoteCards';
 import NoteModal from './NoteModal';
-import useFetch from '../hooks/useFetch';
 
 const Home = () => {
+  const [isDarkMode, setDarkMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [update, setUpdate] = useState(false);
   const { data: notes, error } = useFetch(
     'http://localhost:5000/notes',
     update
   );
+
+  const toggleDarkMode = () => {
+    setDarkMode(!isDarkMode);
+  };
 
   return (
     <>

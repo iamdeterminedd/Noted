@@ -35,6 +35,29 @@ h1 {
     position: relative;
   }
 
+.barloader {
+    display: grid;
+    place-content: center;
+    background-color: #8b5cf6;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+
+}
+
+.motion-div{
+    display: flex;
+    gap: 0.25rem;
+
+}
+
+.motion-insideDiv{
+    height: 3rem;
+    width: 0.5rem;
+    background-color: #ffffff;
+}
+
 
 .divTheme{
     display: flex;

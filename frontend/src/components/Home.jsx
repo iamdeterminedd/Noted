@@ -4,19 +4,17 @@ import { useState } from 'react';
 import useFetch from '../hooks/useFetch';
 import NoteCards from './NoteCards';
 import NoteModal from './NoteModal';
+import Barloader from './Barloader';
 
 const Home = () => {
   const [isDarkMode, setDarkMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [update, setUpdate] = useState(false);
-  const { data: notes, error } = useFetch(
-    'https://noted-api.vercel.app/notes',
-    update
-  );
-
-  const toggleDarkMode = () => {
-    setDarkMode(!isDarkMode);
-  };
+  const {
+    data: notes,
+    loading,
+    error,
+  } = useFetch('http://localhost:5000/notes', update);
 
   return (
     <>

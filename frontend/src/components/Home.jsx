@@ -10,7 +10,7 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [update, setUpdate] = useState(false);
   const { data: notes, error } = useFetch(
-    'http://localhost:5000/notes',
+    'https://noted-api.vercel.app/notes',
     update
   );
 

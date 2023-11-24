@@ -8,7 +8,13 @@ dotenv.config();
 const port = process.env.PORT || 5000;
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(
+  cors({
+    origin: 'https://noted-xi.vercel.app/',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type'],
+  })
+);
 
 app.use(express.json());
 

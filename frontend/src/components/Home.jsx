@@ -14,7 +14,7 @@ const Home = () => {
     data: notes,
     loading,
     error,
-  } = useFetch('http://localhost:5000/notes', update);
+  } = useFetch('https://noted-api-d555.onrender.com/notes', update);
 
   return (
     <>

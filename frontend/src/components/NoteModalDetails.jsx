@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useSnackbar } from 'notistack';
+import { useEffect, useState } from 'react';
+import apiClient from '../services/api-client';
 
 const NoteModalDetails = ({ onClose, onUpdate, id }) => {
   const [title, setTitle] = useState('');
@@ -8,8 +8,8 @@ const NoteModalDetails = ({ onClose, onUpdate, id }) => {
   const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/notes/${id}`)
+    apiClient
+      .get(`/notes/${id}`)
       .then((res) => {
         setTitle(res.data.title);
         setText(res.data.text);
@@ -25,8 +25,8 @@ const NoteModalDetails = ({ onClose, onUpdate, id }) => {
       text,
     };
 
-    axios
-      .put(`http://localhost:5000/notes/${id}`, data)
+    apiClient
+      .put(`/notes/${id}`, data)
       .then(() => {
         enqueueSnackbar('Note edited', { variant: 'success' });
         onUpdate();

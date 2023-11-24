@@ -4,17 +4,13 @@ import { useState } from 'react';
 import useFetch from '../hooks/useFetch';
 import NoteCards from './NoteCards';
 import NoteModal from './NoteModal';
-import Barloader from './Barloader';
+import apiClient from '../services/api-client';
 
 const Home = () => {
   const [isDarkMode, setDarkMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [update, setUpdate] = useState(false);
-  const {
-    data: notes,
-    loading,
-    error,
-  } = useFetch('https://noted-api-d555.onrender.com/notes', update);
+  const { data: notes, loading, error } = useFetch(update);
 
   return (
     <>

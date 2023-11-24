@@ -1,13 +1,13 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import apiClient from '../services/api-client';
 
-const useFetch = (url, update) => {
+const useFetch = (update) => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   useEffect(() => {
-    axios
-      .get(url)
+    apiClient
+      .get('/notes')
       .then((res) => {
         setData(res.data.data);
         setLoading(false);
@@ -18,7 +18,7 @@ const useFetch = (url, update) => {
         setLoading(false);
         console.log(error);
       });
-  }, [url, update]);
+  }, [update]);
   return { data, loading, error };
 };
 

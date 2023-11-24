@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import axios from 'axios';
 import { useSnackbar } from 'notistack';
+import { useState } from 'react';
+import apiClient from '../services/api-client';
 
 const NoteModal = ({ onClose, onUpdate }) => {
   const [title, setTitle] = useState('');
@@ -13,8 +13,8 @@ const NoteModal = ({ onClose, onUpdate }) => {
       text,
     };
 
-    axios
-      .post('http://localhost:5000/notes', data)
+    apiClient
+      .post('/notes', data)
       .then(() => {
         enqueueSnackbar('Note Added', { variant: 'success' });
         onUpdate();

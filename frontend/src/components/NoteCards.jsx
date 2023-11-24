@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSnackbar } from 'notistack';
+import React, { useState } from 'react';
+import apiClient from '../services/api-client';
 import NoteModalDetails from './NoteModalDetails';
 
 const NoteCards = ({ notes, onUpdate }) => {
@@ -11,8 +11,8 @@ const NoteCards = ({ notes, onUpdate }) => {
   const { enqueueSnackbar } = useSnackbar();
 
   const handleDeleteNote = (id) => {
-    axios
-      .delete(`http://localhost:5000/notes/${id}`)
+    apiClient
+      .delete(`/notes/${id}`)
       .then(() => {
         enqueueSnackbar('Note deleted', { variant: 'success' });
         onUpdate();

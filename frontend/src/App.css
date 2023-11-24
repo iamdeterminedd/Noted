@@ -36,14 +36,15 @@ h1 {
   }
 
 .barloader {
-    display: grid;
-    place-content: center;
-    background-color: #8b5cf6;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
 }
 
 .motion-div{
@@ -55,7 +56,7 @@ h1 {
 .motion-insideDiv{
     height: 3rem;
     width: 0.5rem;
-    background-color: #ffffff;
+    background-color: var(--body_color);
 }
 
 

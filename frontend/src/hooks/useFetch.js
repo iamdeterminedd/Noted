@@ -4,14 +4,14 @@ import apiClient from '../services/api-client';
 const useFetch = (update) => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState();
+  const [error, setError] = useState(null);
   useEffect(() => {
     apiClient
       .get('/notes')
       .then((res) => {
         setData(res.data.data);
         setLoading(false);
-        console.log('render');
+        setError(null);
       })
       .catch((error) => {
         setError(error.message);

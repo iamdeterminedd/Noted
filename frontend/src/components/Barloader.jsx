@@ -4,6 +4,7 @@ const Barloader = () => {
   return (
     <div className="barloader">
       <BarLoader />
+      <div className="barloader-label"> Loading...</div>
     </div>
   );
 };

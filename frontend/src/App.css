@@ -130,7 +130,7 @@ h1 {
 }
 
 .card .card-content {
-    /* height: 100%; */
+    height: 100%;
     padding: 20px;
     background-color: var(--body_cardbackground);
     color: var(--body_color);
@@ -142,6 +142,7 @@ h1 {
 }
 
 .card .card-content .note-content {
+    font-size: 14px;
     margin: 10px 0;
     color: var(--body_color);
     background-color: var(--body_cardbackground);

@@ -28,17 +28,30 @@ const NoteCards = ({ notes, onUpdate }) => {
     setShowModal(true);
   };
 
+  const contentWithBreaks = (text) => {
+    if (text.includes('\n')) {
+      const resultWithBreaks = text.split('\n').map((line, index) => (
+        <React.Fragment key={index}>
+          {line}
+          <br />
+        </React.Fragment>
+      ));
+
+      return <p className="note-content">{resultWithBreaks}</p>;
+    } else {
+      return <p className="note-content">{text}</p>;
+    }
+  };
+
   return (
     <>
       <div className="notecards-container">
         {notes?.map((item) => (
           <div className="card" key={item._id}>
             <div className="divXmark">
-              {/* <div className="date-container"> */}
               <span className="date-label">
                 {new Date(item.updatedAt).toLocaleDateString('en-US')}
               </span>
-              {/* </div> */}
               <FontAwesomeIcon
                 onClick={() => handleDeleteNote(item._id)}
                 className="xmark-icon"
@@ -51,7 +64,7 @@ const NoteCards = ({ notes, onUpdate }) => {
             >
               <div>
                 <p className="note-title">{item.title}</p>
-                <p className="note-content">{item.text}</p>
+                {contentWithBreaks(item.text)}
               </div>
             </div>
           </div>

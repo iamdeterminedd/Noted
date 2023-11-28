@@ -11,7 +11,7 @@
     --body_cardbackground:#f4f4f4;
     --body_color: #333;
     --border_color: #ccc;
-    --trash_color:#333;
+    --trash_color:#797979;
 }
 
 [data-theme="dark"] {
@@ -19,7 +19,7 @@
     --body_cardbackground:#222a32;
     --body_color:#f4f4f4;
     --border_color: #6f7377;
-    --trash_color:#c9c9c9;
+    --trash_color:#aaaaaa;
 }
 
 body {

@@ -34,6 +34,11 @@ const NoteCards = ({ notes, onUpdate }) => {
         {notes?.map((item) => (
           <div className="card" key={item._id}>
             <div className="divXmark">
+              {/* <div className="date-container"> */}
+              <span className="date-label">
+                {new Date(item.updatedAt).toLocaleDateString('en-US')}
+              </span>
+              {/* </div> */}
               <FontAwesomeIcon
                 onClick={() => handleDeleteNote(item._id)}
                 className="xmark-icon"

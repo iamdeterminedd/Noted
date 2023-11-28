@@ -116,6 +116,7 @@ h1 {
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
+    
 }
 
 .card .divXmark{
@@ -124,12 +125,12 @@ h1 {
 }
 .card .xmark-icon{
     margin: 5px;
-    color: #ce2519;
+    color: #e7554a;
     cursor: pointer;
 }
 
 .card .card-content {
-    height: 100%;
+    /* height: 100%; */
     padding: 20px;
     background-color: var(--body_cardbackground);
     color: var(--body_color);
@@ -142,6 +143,13 @@ h1 {
 
 .card .card-content .note-content {
     margin: 10px 0;
+    color: var(--body_color);
+    background-color: var(--body_cardbackground);
+}
+
+.card .date-label {
+    font-size: 12px;
+    padding: 10px;
     color: var(--body_color);
     background-color: var(--body_cardbackground);
 }
@@ -251,7 +259,6 @@ background-color: var(--body_cardbackground);
 }
 
 .card .xmark-icon{
-    color: #ce2519;
     font-size: 18px;
 }
 }

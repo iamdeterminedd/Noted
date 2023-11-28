@@ -2,13 +2,11 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import useFetch from '../hooks/useFetch';
+import Barloader from './Barloader';
 import NoteCards from './NoteCards';
 import NoteModal from './NoteModal';
-import apiClient from '../services/api-client';
-import Barloader from './Barloader';
 
 const Home = () => {
-  const [isDarkMode, setDarkMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [update, setUpdate] = useState(false);
   const { data: notes, loading, error } = useFetch(update);

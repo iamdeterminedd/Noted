@@ -100,10 +100,15 @@ h1 {
 
 .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    justify-content: flex-start;
     background-color: var(--body_background);
+    padding: 20px;
 }
+
+
 
 .notecards-container {
     display: grid;
@@ -118,6 +123,7 @@ h1 {
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
+    flex-basis: calc(100%);
     
 }
 
@@ -217,6 +223,11 @@ background-color: var(--body_cardbackground);
 .divTheme{
     right: 20px;
 }
+
+.card {
+    flex-basis: calc(30% - 60px);
+}
+
 .notecards-container {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -257,8 +268,12 @@ background-color: var(--body_cardbackground);
     background-color: #28c95e;
 }
 
+.notecards {
+    width: 100%;
+}
+
 .card {
-    width: 200px;
+    flex-basis: calc(20% - 20px);
 }
 
 .card .xmark-icon{
@@ -272,7 +287,7 @@ background-color: var(--body_cardbackground);
     }
 
     .card {
-        width: 250px;
+        flex-basis: calc(20% - 85px);
     }
     
 }

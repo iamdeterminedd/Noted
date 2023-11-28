@@ -45,31 +45,29 @@ const NoteCards = ({ notes, onUpdate }) => {
 
   return (
     <>
-      <div className="notecards-container">
-        {notes?.map((item) => (
-          <div className="card" key={item._id}>
-            <div className="divXmark">
-              <span className="date-label">
-                {new Date(item.updatedAt).toLocaleDateString('en-US')}
-              </span>
-              <FontAwesomeIcon
-                onClick={() => handleDeleteNote(item._id)}
-                className="xmark-icon"
-                icon={faXmark}
-              />
-            </div>
-            <div
-              className="card-content"
-              onClick={() => handleNoteClicked(item._id)}
-            >
-              <div>
-                <p className="note-title">{item.title}</p>
-                {contentWithBreaks(item.text)}
-              </div>
+      {notes?.map((item) => (
+        <div className="card" key={item._id}>
+          <div className="divXmark">
+            <span className="date-label">
+              {new Date(item.updatedAt).toLocaleDateString('en-US')}
+            </span>
+            <FontAwesomeIcon
+              onClick={() => handleDeleteNote(item._id)}
+              className="xmark-icon"
+              icon={faXmark}
+            />
+          </div>
+          <div
+            className="card-content"
+            onClick={() => handleNoteClicked(item._id)}
+          >
+            <div>
+              <p className="note-title">{item.title}</p>
+              {contentWithBreaks(item.text)}
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
       {showModal && (
         <NoteModalDetails
           onClose={() => setShowModal(false)}

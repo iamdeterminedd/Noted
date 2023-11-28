@@ -10,12 +10,14 @@
     --body_background: #f4f4f4;
     --body_cardbackground:#f4f4f4;
     --body_color: #333;
+    --border_color: #ccc;
 }
 
 [data-theme="dark"] {
     --body_background: #222a32;
     --body_cardbackground:#222a32;
     --body_color:#f4f4f4;
+    --border_color: #6f7377;
 }
 
 body {
@@ -111,7 +113,7 @@ h1 {
 
 /* Note Card */
 .card {
-    border: 1px solid #ccc;
+    border: 1px solid var(--border_color);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

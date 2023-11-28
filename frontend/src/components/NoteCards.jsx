@@ -1,4 +1,4 @@
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSnackbar } from 'notistack';
 import React, { useState } from 'react';
@@ -47,15 +47,10 @@ const NoteCards = ({ notes, onUpdate }) => {
     <>
       {notes?.map((item) => (
         <div className="card" key={item._id}>
-          <div className="divXmark">
+          <div className="divDate">
             <span className="date-label">
               {new Date(item.updatedAt).toLocaleDateString('en-US')}
             </span>
-            <FontAwesomeIcon
-              onClick={() => handleDeleteNote(item._id)}
-              className="xmark-icon"
-              icon={faXmark}
-            />
           </div>
           <div
             className="card-content"
@@ -65,6 +60,13 @@ const NoteCards = ({ notes, onUpdate }) => {
               <p className="note-title">{item.title}</p>
               {contentWithBreaks(item.text)}
             </div>
+          </div>
+          <div className="divTrash">
+            <FontAwesomeIcon
+              onClick={() => handleDeleteNote(item._id)}
+              className="trash-icon"
+              icon={faTrash}
+            />
           </div>
         </div>
       ))}

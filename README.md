@@ -1,6 +1,6 @@
 # Noted
 
-A note-taking app that captures your ideas that you don't want to lose.
+A note-taking app that captures your ideas that you don't want to lose and save them in the database.
 
 ## Goal
 

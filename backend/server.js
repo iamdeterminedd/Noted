@@ -10,6 +10,7 @@ const app = express();
 
 // app.use(cors());
 
+// Enable CORS (Cross-Origin Resource Sharing) middleware
 app.use(
   cors({
     origin: 'https://noted-xi.vercel.app',
@@ -18,14 +19,17 @@ app.use(
   })
 );
 
+// Middleware to parse incoming JSON requests
 app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Noted App');
 });
 
+// Middleware to handle routes
 app.use('/notes', noteRoute);
 
+// Connecting to MongoDB database
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {

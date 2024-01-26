@@ -3,6 +3,7 @@ import { Note } from '../models/noteModel.js';
 
 const router = express.Router();
 
+// Route to handle POST request for creating a new note
 router.post('/', async (req, res) => {
   try {
     if (!req.body.title || !req.body.text) {
@@ -23,6 +24,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Route to handle GET requests for retrieving all notes
 router.get('/', async (req, res) => {
   try {
     const notes = await Note.find({});
@@ -36,6 +38,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Route to handle GET requests for retrieving a specific note by ID
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -47,6 +50,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// Route to handle PUT requests for updating a soecific note by ID
 router.put('/:id', async (req, res) => {
   try {
     if (!req.body.title || !req.body.text) {
@@ -68,6 +72,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// Route to handle DELETE requests for deleting a specific note by ID
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
